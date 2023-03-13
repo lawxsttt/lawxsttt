@@ -6,9 +6,10 @@ import{AiOutlineShoppingCart}from 'react-icons/ai'
 
 import logo from '../../images/logo.png'
 import Container from "../../layout/Container";
+import { Link } from "react-router-dom";
 
 const Header = styled.header`
-background: #004F44;
+background: #5bc49f;
 `
 
 const Nav = styled.nav`
@@ -32,13 +33,16 @@ const Ul = styled.ul`
     list-style: none;
 `
 
-const Link = styled.a`
+const Links = styled(Link)`
     color: #fff;
     font-size: 18px;
     font-weight: 500;
     text-decoration: none;
+    
 
 `
+
+
 
 const links = [
     {
@@ -46,7 +50,8 @@ const links = [
         link:'/shop'
     },
     {
-        name:'products'
+        name:'products',
+        link:'/product'
     },
     {
         name:'feltilizer',
@@ -57,7 +62,9 @@ const links = [
         link:'/guide'
 
 
+
     }
+    
 ]
 
 const Navbar = () =>{
@@ -69,16 +76,16 @@ const Navbar = () =>{
                 
                 <Ul>
                     {links.map((item)=>(
-                        <Li><Link href={item.link}>{item.name}</Link></Li>
+                        <Li><Links to={item.link}>{item.name}</Links></Li>
                     ))}
                 </Ul>
-                <a href="#">
+                <Link to="/">
                     <img src={logo} alt="" />
-                </a>
+                </Link>
                 <Ul>
-                    <li><Link href=""><AiOutlineSearch/></Link></li>
-                    <li><Link href=""><BsPersonFill/></Link></li>
-                    <li><Link href=""><AiOutlineShoppingCart/></Link></li>
+                    <li><Links to="/"><AiOutlineSearch/></Links></li>
+                    <li><Links to="/"><BsPersonFill/></Links></li>
+                    <li><Links to="/"><AiOutlineShoppingCart/></Links></li>
 
 
                 </Ul>
