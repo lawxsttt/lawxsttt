@@ -2,6 +2,7 @@ import React from 'react'
 import Banner from '../components/Banner'
 import Slider from '../components/Slider'
 import Search from '../components/Search'
+import Cards from '../components/Cards'
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
         <Banner/>
         <Slider/>
         <Search/>
+        <Cards/>
     </>
   )
 }
