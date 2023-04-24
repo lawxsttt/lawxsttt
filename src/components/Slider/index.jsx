@@ -1,127 +1,77 @@
-import React from 'react'
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import React, { useState } from "react";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-// import 'swiper/css/scrollbar';
-
-import img from '../../images/img.png'
-import img1 from '../../images/img1.png'
-import img2 from '../../images/img2.png'
-import img3 from '../../images/img3.png'
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Section = styled.section`
   padding: 100px 50px;
-
-`
+`;
 
 const Title = styled.h1`
-  font-family: 'Steppe';
+  font-family: "Steppe";
   font-style: normal;
   font-weight: 400;
   font-size: 40px;
   margin-bottom: 100px;
-  color: #004F44;
-`
+  color: #001684;
+`;
 
+const Box = styled("div")`
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+  padding: 10px;
+  border-radius: 20px 20px 0 0;
+`;
 
-const data = [
-  {
-    id:1,
-    img,
-    name: "Peperomia Ginny $25",
-   
-  },
-  {
-    id:2,
-    img:img1,
-    name: "Birds Nest Fern $45",
-  
-   
-  },
-
-  {
-    id:3,
-    img:img2,
-    name: "Large Majesty Palm $52",
-
-   
-  },
-  {
-    id:4,
-    img:img3,
-    name: "Pet Friendly Plant $30",
-   
-  }, 
-  {
-    id:5,
-    img,
-    name: "Peperomia Ginny",
-  
-  },
-  {
-    id:6,
-    img,
-    name: "Peperomia Ginny",
-
-
-  },
-  
-]
-
-const P = styled('p')`
+const P = styled("p")`
   font-size: 28px;
-`
+  margin: 5px;
+`;
 
-const Button = styled('button')`
+const Button = styled("button")`
+  width: 200px;
+  line-height: 45px;
   border: none;
-  padding: .7rem 1rem;
-  background-color: #004F44;
+  background-color: #0f3987ac;
   color: white;
   cursor: pointer;
-  transition: all .5s;
-  &:hover{
-    background-color: lightgreen;
+  transition: all 0.5s;
+  margin: 15px;
+  /* margin-left: 60px; */
+  &:hover {
+    background-color: #083ce7;
   }
-`
+`;
 
+const Cards = styled("div")`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+`;
 
-
-const Slider = () => {
+const Slider = (props) => {
+  console.log(props);
   return (
     <Section>
       <Title>Featured</Title>
-      <Swiper
-      // install Swiper modules
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={50}
-      slidesPerView={3}
-      navigation
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
-    >
-      {
-        data.map((item)=>(
-          <SwiperSlide key={item.id}>
-            <img src={item.img} alt="" />
+      <Cards>
+        {props.data.map((item) => (
+          <Box key={item.id}>
+            <img
+              src={item.img}
+              alt=""
+              style={{ width: "250px", height: "350px" }}
+            />
             <P>{item.price}</P>
-            <P>{item.name}</P>
+            <P>
+              {item.name} {item.price}$
+            </P>
             <Button>Buy Now</Button>
-          </SwiperSlide>
-
-        ))
-      }
-    </Swiper>
+          </Box>
+        ))}
+      </Cards>
     </Section>
+  );
+};
 
-  )
-}
-
-export default Slider
+export default Slider;

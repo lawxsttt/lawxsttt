@@ -1,99 +1,155 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import {AiOutlineSearch} from 'react-icons/ai'
-import {BsPersonFill} from 'react-icons/bs'
-import{AiOutlineShoppingCart}from 'react-icons/ai'
+import { AiOutlineSearch } from "react-icons/ai";
+import { BsPersonFill } from "react-icons/bs";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
-import logo from '../../images/logo.png'
+import logo from "../../images/logo.png";
 import Container from "../../layout/Container";
 import { Link } from "react-router-dom";
+import Order from "./Order";
 
 const Header = styled.header`
-background: #5bc49f;
-`
+  background: #5f88c5;
+`;
 
 const Nav = styled.nav`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+`;
 
 const Box = styled(Container)`
-    padding: 20px 0;
-`
-const Li = styled('li')`
-    list-style: none;
-    color: white;
-    text-decoration: none;
-`
+  padding: 20px 0;
+`;
+const Li = styled("li")`
+  list-style: none;
+  color: white;
+  text-decoration: none;
+`;
 const Ul = styled.ul`
-    display: flex;
-    gap: 3em;
-    list-style: none;
-`
+  display: flex;
+  gap: 3em;
+  list-style: none;
+`;
 
 const Links = styled(Link)`
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: none;
-    
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+`;
 
-`
+const LiSearch = styled("div")`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
 
+const Input = styled("input")`
+  border: none;
+  border-radius: 50px;
+  padding: 0.4rem 1rem;
+  font-size: 18px;
+`;
 
+const ShopCart = styled("div")`
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 450px;
+  background: #fafafa;
+  -webkit-box-shadow: 4px 5px 15px -7px #606060;
+  box-shadow: 4px 5px 15px -7px #606060;
+  z-index: 1000;
+  padding: 20px;
+  padding-bottom: 0;
+`;
 
 const links = [
-    {
-        name:'shop',
-        link:'/shop'
-    },
-    {
-        name:'products',
-        link:'/product'
-    },
-    {
-        name:'feltilizer',
-        link:'/feltilizer'
-    },
-    {
-        name:'guide',
-        link:'/guide'
+  {
+    name: "Shop",
+    link: "/shop",
+  },
+  {
+    name: "Products",
+    link: "/product",
+  },
+  {
+    name: "Feltilizer",
+    link: "/feltilizer",
+  },
+  {
+    name: "Guide",
+    link: "/guide",
+  },
+];
 
+const Navbar = (props) => {
+  let [cartOpen, setCartOpen] = useState(false);
+  console.log(cartOpen);
+  let summa = 0;
+  props.orders.forEach((el) => (summa += Number.parseFloat(el.price)));
 
+  const showOrders = () => {
+    return (
+      <div>
+        {props.orders.map((el) => (
+          <Order onDelete={props.onDelete} key={el.id} item={el} />
+        ))}
+      </div>
+    );
+  };
 
-    }
-    
-]
+  const showNothing = () => {
+    return (
+      <div className="empty">
+        <h2>Товаров нет</h2>
+      </div>
+    );
+  };
 
-const Navbar = () =>{
+  return (
+    <Header>
+      <Box>
+        <Nav>
+          <Ul>
+            {links.map((item) => (
+              <Li>
+                <Links to={item.link}>{item.name}</Links>
+              </Li>
+            ))}
+          </Ul>
+          <Link to="/">
+            <img src={logo} alt="" />
+          </Link>
+          <Ul>
+            <LiSearch>
+              <Input type="search" />
+              <AiOutlineSearch color="white" size={20} />
+            </LiSearch>
+            <LiSearch>
+              <Links to="/login">
+                <BsPersonFill />
+              </Links>
+            </LiSearch>
+            <LiSearch>
+              <AiOutlineShoppingCart
+                className={`shop-cart-button ${cartOpen && "active"}`}
+                onClick={() => setCartOpen(!cartOpen)}
+              />
+              {cartOpen && (
+                <ShopCart className="shop-cart">
+                  {props.orders.length > 0 ? showOrders(props) : showNothing()}
+                </ShopCart>
+              )}
+            </LiSearch>
+          </Ul>
+        </Nav>
+      </Box>
+    </Header>
+  );
+};
 
-    return(
-       <Header>
-         <Box>
-            <Nav>
-                
-                <Ul>
-                    {links.map((item)=>(
-                        <Li><Links to={item.link}>{item.name}</Links></Li>
-                    ))}
-                </Ul>
-                <Link to="/">
-                    <img src={logo} alt="" />
-                </Link>
-                <Ul>
-                    <li><Links to="/"><AiOutlineSearch/></Links></li>
-                    <li><Links to="/"><BsPersonFill/></Links></li>
-                    <li><Links to="/"><AiOutlineShoppingCart/></Links></li>
-
-
-                </Ul>
-
-            </Nav>
-        </Box>
-       </Header>
-    )
-}
-
-export default Navbar
+export default Navbar;
