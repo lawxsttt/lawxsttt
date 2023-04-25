@@ -24,7 +24,25 @@ import img38 from "./product-items/img38.jpg";
 import img12 from "./product-items/img12.jpg";
 import img15 from "./product-items/img15.jpg";
 import img16 from "./product-items/img16.jpg";
-
+import img17 from "./product-items/img17.jpg";
+import img21 from "./product-items/img21.jpg";
+import img22 from "./product-items/img22.jpg";
+import img111 from "./product-items/img111.jpg";
+import img11111 from "./product-items/img11111.jpg";
+import img26 from "./product-items/img26.jpg";
+import img27 from "./product-items/img27.jpg";
+import img28 from "./product-items/img28.jpg";
+import img29 from "./product-items/img29.jpg";
+import img30 from "./product-items/img30.jpg";
+import img31 from "./product-items/img31.jpg";
+import img32 from "./product-items/img32.jpg";
+import img111111 from "./product-items/img111111.jpg";
+import img2128 from "./product-items/img2128.jpg";
+import img2121 from "./product-items/img2121.jpg";
+import img2122 from "./product-items/img2122.jpg";
+import img2123 from "./product-items/img2123.jpg";
+import img2124 from "./product-items/img2124.jpg";
+import img2125 from "./product-items/img2125.jpg";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -34,7 +52,6 @@ function App() {
       img: img11,
       category: "clothes",
       name: "top",
-      price: 25,
     },
     {
       id: 2,
@@ -76,12 +93,12 @@ function App() {
     {
       id: 2,
       img: img37,
-      name: "top $45",
+      name: "top $25",
     },
     {
       id: 4,
       img: img38,
-      name: "top $45",
+      name: "top $35",
     },
     {
       id: 5,
@@ -91,7 +108,7 @@ function App() {
     {
       id: 6,
       img: img15,
-      name: "top $45",
+      name: "top $55",
     },
     {
       id: 7,
@@ -99,99 +116,99 @@ function App() {
       name: "top $45",
     },
     {
-      id: 2,
-      img: img37,
+      id: 8,
+      img: img17,
+      name: "top $10",
+    },
+    {
+      id: 9,
+      img: img21,
+      name: "top $26",
+    },
+    {
+      id: 10,
+      img: img22,
+      name: "top $45",
+    },
+    {
+      id: 11,
+      img: img111,
+      name: "top $45",
+    },
+    {
+      id: 12,
+      img: img11111,
+      name: "top $45",
+    },
+    {
+      id: 13,
+      img: img26,
+      name: "top $45",
+    },
+    {
+      id: 14,
+      img: img27,
+      name: "top $45",
+    },
+    {
+      id: 15,
+      img: img28,
+      name: "top $45",
+    },
+    {
+      id: 16,
+      img: img29,
+      name: "top $45",
+    },
+    {
+      id: 17,
+      img: img30,
+      name: "top $45",
+    },
+    {
+      id: 18,
+      img: img31,
+      name: "top $45",
+    },
+    {
+      id: 19,
+      img: img32,
+      name: "top $45",
+    },
+    {
+      id: 20,
+      img: img111111,
+      name: "top $45",
+    },
+    {
+      id: 21,
+      img: img2128,
       name: "top $45",
     },
     {
       id: 2,
-      img: img37,
+      img: img2121,
       name: "top $45",
     },
     {
       id: 2,
-      img: img37,
-      name: "top $45",
-    },
-    {
-      id: 2,
-      img: img37,
-      name: "top $45",
-    },
-    {
-      id: 2,
-      img: img37,
-      name: "top $45",
-    },
-    {
-      id: 2,
-      img: img37,
-      name: "top $45",
-    },
-    {
-      id: 2,
-      img: img37,
-      name: "top $45",
-    },
-    {
-      id: 2,
-      img: img37,
-      name: "top $45",
-    },
-    {
-      id: 2,
-      img: img37,
-      name: "top $45",
-    },
-    {
-      id: 2,
-      img: img37,
-      name: "top $45",
-    },
-    {
-      id: 2,
-      img: img37,
-      name: "top $45",
-    },
-    {
-      id: 2,
-      img: img37,
-      name: "top $45",
-    },
-    {
-      id: 2,
-      img: img37,
-      name: "top $45",
-    },
-    {
-      id: 2,
-      img: img37,
-      name: "top $45",
-    },
-    {
-      id: 2,
-      img: img37,
-      name: "top $45",
-    },
-    {
-      id: 2,
-      img: img37,
+      img: img2122,
       name: "top $45",
     },
 
     {
       id: 2,
-      img: img37,
+      img: img2123,
       name: "top $45",
     },
     {
       id: 2,
-      img: img37,
+      img: img2124,
       name: "top $45",
     },
     {
       id: 2,
-      img: img37,
+      img: img2125,
       name: "top $45",
     },
   ];
@@ -201,9 +218,9 @@ function App() {
   function addToOrder(items) {
     let isInArray = false;
     orders.forEach((el) => {
-      if (el.id == data.id) isInArray = true;
+      if (el.id == items.id) isInArray = true;
     });
-    if (!isInArray) setOrders([...orders, data]);
+    if (!isInArray) setOrders([...orders, items]);
   }
 
   function deleteOrder(index) {
@@ -225,7 +242,7 @@ function App() {
         <Route path="/product" element={<Product />} />
         <Route path="/login" element={<LoginPage setIsAuth={setIsAuth} />} />
         <Route path="/Feltilizer" element={<Feltilizer />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route path="/shop" element={<Shop data={data} />} />
         <Route path="/search" element={<SearchPage />} />
       </Routes>
     </BrowserRouter>

@@ -1,9 +1,9 @@
 import React from "react";
 import Slider from "../components/Slider/index";
-const Shop = () => {
+const Shop = ({data}) => {
   return (
     <>
-      <Slider />
+      <Slider data={data}/>
     </>
   );
 };

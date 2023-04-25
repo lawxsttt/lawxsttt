@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import img from "./image5.png";
+import img from "./image12345.png";
 import { BiPhoneCall } from "react-icons/bi"
 import {BsInstagram} from "react-icons/bs"
 
@@ -13,11 +13,12 @@ background-repeat: no-repeat;
 background-size: cover;
 
 `
+
 const Icon = styled('div')`
     margin: 2rem 0;
     display: flex;
     flex-direction: column;
-    color: #9C6955;
+    color: #002864;
 `
 
 const IconInner = styled('div')`
@@ -31,6 +32,7 @@ const Text = styled('div')`
     const ItemTop = styled('div')``
 
     const Section = styled('div')``
+   
 
 const Free = () => {
     return (
@@ -43,7 +45,7 @@ const Free = () => {
                     <p>+998 33 303 22 95</p>
                     </IconInner>
                     
-                    <IconInner><BsInstagram size={18}/> <p>platify_plant</p></IconInner>
+                    <IconInner><BsInstagram size={18}/> <p>style_foryou</p></IconInner>
                 </Icon>
         </ImagesContainer>
     </Section>

@@ -66,7 +66,8 @@ const Banner = () => {
     <Section>
       <Container>
         <Left>
-          <Header>Happiness blooms from within</Header>
+          <Header>
+Love for clothes blossoms from within</Header>
           <p>
             Our environment, the world in which we live and work, is a mirror of
             our attitudes and expectations.
@@ -74,7 +75,7 @@ const Banner = () => {
           <BtnContainer>
             <Button>shop now</Button>
             <Button>
-              Explore plants <ArrowRight />
+              Explore clothes <ArrowRight />
             </Button>
           </BtnContainer>
         </Left>

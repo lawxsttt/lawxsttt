@@ -18,7 +18,7 @@ const Title = styled.h1`
 const Box = styled("div")`
   display: flex;
   flex-direction: column;
-  background-color: lightgray;
+  background-color: #e1e1e1;
   padding: 10px;
   border-radius: 20px 20px 0 0;
 `;
@@ -49,26 +49,27 @@ const Cards = styled("div")`
   gap: 5rem;
 `;
 
-const Slider = (props) => {
-  console.log(props);
+const Slider = ({ data, onAdd }) => {
+  // console.log(data);
   return (
     <Section>
       <Title>Featured</Title>
       <Cards>
-        {props.data.map((item) => (
-          <Box key={item.id}>
-            <img
-              src={item.img}
-              alt=""
-              style={{ width: "250px", height: "350px" }}
-            />
-            <P>{item.price}</P>
-            <P>
-              {item.name} {item.price}$
-            </P>
-            <Button>Buy Now</Button>
-          </Box>
-        ))}
+        {data &&
+          data.map((item) => (
+            <Box key={item.id}>
+              <img
+                src={item.img}
+                alt=""
+                style={{ width: "250px", height: "350px" }}
+              />
+              <P>{item.price}</P>
+              <P>
+                {item.name} {item.price}$
+              </P>
+              <Button onClick={() => onAdd(item)}>Buy Now</Button>
+            </Box>
+          ))}
       </Cards>
     </Section>
   );

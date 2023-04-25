@@ -86,17 +86,18 @@ const links = [
   },
 ];
 
-const Navbar = (props) => {
+const Navbar = ({ orders, onDelete }) => {
+  console.log(orders);
   let [cartOpen, setCartOpen] = useState(false);
   console.log(cartOpen);
   let summa = 0;
-  props.orders.forEach((el) => (summa += Number.parseFloat(el.price)));
+  orders.forEach((el) => (summa += Number.parseFloat(el.price)));
 
   const showOrders = () => {
     return (
       <div>
-        {props.orders.map((el) => (
-          <Order onDelete={props.onDelete} key={el.id} item={el} />
+        {orders.map((el) => (
+          <Order onDelete={onDelete} items={el} />
         ))}
       </div>
     );
@@ -104,7 +105,7 @@ const Navbar = (props) => {
 
   const showNothing = () => {
     return (
-      <div className="empty">
+      <div className="empty" style={{ margin: "0 0 10px 0" }}>
         <h2>Товаров нет</h2>
       </div>
     );
@@ -136,12 +137,14 @@ const Navbar = (props) => {
             </LiSearch>
             <LiSearch>
               <AiOutlineShoppingCart
+                color="white"
+                style={{ cursor: "pointer" }}
                 className={`shop-cart-button ${cartOpen && "active"}`}
                 onClick={() => setCartOpen(!cartOpen)}
               />
               {cartOpen && (
                 <ShopCart className="shop-cart">
-                  {props.orders.length > 0 ? showOrders(props) : showNothing()}
+                  {orders.length > 0 ? showOrders(orders) : showNothing()}
                 </ShopCart>
               )}
             </LiSearch>

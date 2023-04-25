@@ -67,8 +67,8 @@ const Cards = () => {
         <p>view all</p>
       </ItemTop>
       <ImagesContainer>
-        {Images.map((data) => (
-          <PositionDiv>
+        {Images.map((data,i) => (
+          <PositionDiv key={i}>
             <img src=
             {data.url} 
              style={{ width: "250px", height: "350px" }}/>

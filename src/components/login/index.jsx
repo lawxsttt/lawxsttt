@@ -15,7 +15,7 @@ const Container = styled("form")`
   border-radius: 8px;
   padding: 40px;
   display: flex;
-  background-color: #5db35d;
+  background-color: #154aa6c6;
   width: 500px;
   margin-top: 4rem;
 `;
@@ -51,7 +51,7 @@ const Button = styled.button`
   width: 240px;
   border-radius: 50px;
   border: none;
-  background-color: #87dd25;
+  background-color: #1651e7f3;
   color: white;
 `;
 const ContainerBigger = styled("div")`

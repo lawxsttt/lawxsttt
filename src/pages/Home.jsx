@@ -8,11 +8,11 @@ import Free from "../components/Free";
 import BarChart from "../components/Charts/BarChart";
 import IncomeChart from "../components/Charts/Income";
 
-const Home = (props) => {
+const Home = ({ data, onAdd }) => {
   return (
     <>
       <Banner />
-      <Slider data={props.data} />
+      <Slider data={data} onAdd={onAdd} />
       <Search />
       <Cards />
       <IncomeChart />
