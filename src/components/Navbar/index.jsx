@@ -122,9 +122,6 @@ const Navbar = ({ orders, onDelete }) => {
               </Li>
             ))}
           </Ul>
-          <Link to="/">
-            <img src={logo} alt="" />
-          </Link>
           <Ul>
             <LiSearch>
               <Input type="search" />
