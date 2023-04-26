@@ -21,6 +21,7 @@ const ItemTop = styled("div")`
   align-content: center;
   color: #00158e9f;
   margin-bottom: 40px;
+  margin-left:300px
 `;
 
 const ImagesContainer = styled("div")`
@@ -63,7 +64,7 @@ const Cards = () => {
   return (
     <Section>
       <ItemTop>
-        <Text>Colorful New Arrivals</Text>
+        <Text>What kind of styles you can found there</Text>
         <p>view all</p>
       </ItemTop>
       <ImagesContainer>

@@ -14,7 +14,7 @@ export const  Images = [
     },
     {
         url: img3,
-        name:'dds'
+        name:'drip style'
 
     }
 ]

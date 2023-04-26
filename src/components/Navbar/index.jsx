@@ -73,16 +73,16 @@ const links = [
     link: "/shop",
   },
   {
-    name: "Products",
+    name: "Styles",
     link: "/product",
   },
   {
-    name: "Feltilizer",
-    link: "/feltilizer",
+    name: "About Us",
+    link: "/aboutus",
   },
   {
-    name: "Guide",
-    link: "/guide",
+    name: "Home",
+    link: "/",
   },
 ];
 

@@ -53,7 +53,6 @@ const Slider = ({ data, onAdd }) => {
   // console.log(data);
   return (
     <Section>
-      <Title>Featured</Title>
       <Cards>
         {data &&
           data.map((item) => (
